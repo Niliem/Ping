@@ -1,7 +1,6 @@
 #pragma once
 
-#include "StateManager.hpp"
-#include "StateMenu.hpp"
+#include <SFML/Graphics.hpp>
 
 class Application
 	: sf::NonCopyable
@@ -19,6 +18,5 @@ private:
 
 private:
 	sf::RenderWindow mWindow;
-	bool mApplicationRunning;
 };
 
