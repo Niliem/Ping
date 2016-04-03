@@ -19,8 +19,8 @@ void StateManager::update(float ft)
 		mCurrentState->update(ft);
 }
 
-void StateManager::render(sf::RenderWindow* window)
+void StateManager::render()
 {
 	if (mCurrentState != nullptr)
-		mCurrentState->render(window);
+		mCurrentState->render();
 }

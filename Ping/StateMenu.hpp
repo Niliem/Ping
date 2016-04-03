@@ -2,20 +2,22 @@
 
 #include <iostream>
 #include "State.hpp"
+#include "TestActor.hpp"
 
 
 class StateMenu :
 	public State
 {
 public:
-	StateMenu();
+	StateMenu(sf::RenderWindow* window);
 	~StateMenu();
 
 	void handleEvent();
 	void update(float ft);
-	void render(sf::RenderWindow* window);
+	void render();
 
 private:
+	TestActor actor;
 
 };
 

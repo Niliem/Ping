@@ -8,8 +8,8 @@ Application::Application()
 	, mFtStep{ 1.0f }
 	, mFtSlice{ 1.0f }
 {
-	mWindow.setFramerateLimit(1);
-	StateManager::setState(std::shared_ptr<StateMenu>(new StateMenu));
+	mWindow.setFramerateLimit(60);
+	StateManager::setState(std::shared_ptr<StateMenu>(new StateMenu(&mWindow)));
 }
 
 
@@ -65,7 +65,7 @@ void Application::render()
 {
 	mWindow.clear();
 
-	StateManager::render(&mWindow);
+	StateManager::render();
 
 	mWindow.display();
 }

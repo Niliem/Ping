@@ -9,7 +9,7 @@ public:
 
 	static void handleEvent();
 	static void update(float ft);
-	static void render(sf::RenderWindow* window);
+	static void render();
 
 private:
 	static std::shared_ptr<State> mCurrentState;
