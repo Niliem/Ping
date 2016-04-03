@@ -2,22 +2,22 @@
 
 #include <iostream>
 #include "State.hpp"
-#include "TestActor.hpp"
+#include "Ball.hpp"
 
 
-class StateMenu :
+class StateGame :
 	public State
 {
 public:
-	StateMenu(sf::RenderWindow* window);
-	~StateMenu();
+	StateGame(sf::RenderWindow* window);
+	~StateGame();
 
 	void handleEvent();
 	void update(float ft);
 	void render();
 
 private:
-	TestActor actor;
+	Ball actor;
 
 };
 

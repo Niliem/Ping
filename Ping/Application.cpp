@@ -9,7 +9,7 @@ Application::Application()
 	, mFtSlice{ 1.0f }
 {
 	mWindow.setFramerateLimit(60);
-	StateManager::setState(std::shared_ptr<StateMenu>(new StateMenu(&mWindow)));
+	StateManager::setState(std::shared_ptr<StateGame>(new StateGame(&mWindow)));
 }
 
 
