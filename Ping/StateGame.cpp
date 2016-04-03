@@ -3,8 +3,8 @@
 
 StateGame::StateGame(sf::RenderWindow* window)
 	: mBall{20.0f, 20.0f, window->getSize().x / 2.0f,  window->getSize().y / 2.0f, 0.1, 0.2}
-	, mPlayer1{ 10.0f, 50.0f, 30.0f,  window->getSize().y / 2.0f, 0.3 }
-	, mPlayer2{ 10.0f, 50.0f, window->getSize().x - 30.0f,  window->getSize().y / 2.0f, 0.3 }
+	, mPlayer1{ 15.0f, 70.0f, 30.0f,  window->getSize().y / 2.0f, 0.3 }
+	, mPlayer2{ 15.0f, 70.0f, window->getSize().x - 30.0f,  window->getSize().y / 2.0f, 0.3 }
 {
 	mWindow = window;
 }
