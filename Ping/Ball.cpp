@@ -14,15 +14,12 @@ Ball::~Ball()
 {
 }
 
-void Ball::update(sf::RenderWindow* window)
+void Ball::update(sf::RenderWindow* window, float ft)
 {
-	if (this->isRun)
-	{
-		this->shape.move(this->mVelocity);
+	this->shape.move(this->mVelocity * ft);
 
-		if (this->x() < 0 || this->x() > window->getSize().x)
-			this->mVelocity.x *= -1;
-		if (this->y() < 0 || this->y() > window->getSize().y)
-			this->mVelocity.y *= -1;
-	}
+	if (this->x() < 0 || this->x() > window->getSize().x)
+		this->mVelocity.x *= -1;
+	if (this->y() < 0 || this->y() > window->getSize().y)
+		this->mVelocity.y *= -1;
 }

@@ -1,18 +1,14 @@
 #pragma once
 
-#include "Rectangle.hpp"
+#include "Entity.hpp"
 
 class Ball
-	: public Rectangle
+	: public Entity
 {
 public:
 	Ball(float w, float h, float x, float y, float vx, float vy);
 	~Ball();
 
-	void update(sf::RenderWindow* window);
-	bool isRun;
-
-private:
-	sf::Vector2f mVelocity;
+	void update(sf::RenderWindow* window, float ft);
 };
 

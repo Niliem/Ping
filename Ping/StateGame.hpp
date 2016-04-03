@@ -1,8 +1,11 @@
 #pragma once
 
 #include <iostream>
+#include <vector>
 #include "State.hpp"
 #include "Ball.hpp"
+#include "Paddle.hpp"
+#include "Physics.hpp"
 
 class StateGame :
 	public State
@@ -17,6 +20,7 @@ public:
 
 private:
 	Ball mBall;
-
+	Paddle mPlayer1;
+	Paddle mPlayer2;
 };
 
