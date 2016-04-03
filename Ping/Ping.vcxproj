@@ -151,16 +151,18 @@
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Rectangle.cpp" />
     <ClCompile Include="StateManager.cpp" />
-    <ClCompile Include="StateMenu.cpp" />
-    <ClCompile Include="TestActor.cpp" />
+    <ClCompile Include="StateGame.cpp" />
+    <ClCompile Include="Ball.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.hpp" />
+    <ClInclude Include="Rectangle.hpp" />
     <ClInclude Include="State.hpp" />
     <ClInclude Include="StateManager.hpp" />
-    <ClInclude Include="StateMenu.hpp" />
-    <ClInclude Include="TestActor.hpp" />
+    <ClInclude Include="StateGame.hpp" />
+    <ClInclude Include="Ball.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
