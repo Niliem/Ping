@@ -12,9 +12,6 @@ public:
 	float top() const noexcept;
 	float bottom() const noexcept;
 
-	sf::RectangleShape getShape() const noexcept;
-
-private:
-	sf::RectangleShape mShape;
+	sf::RectangleShape shape;
 };
 

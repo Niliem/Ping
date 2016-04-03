@@ -3,10 +3,10 @@
 
 Ball::Ball(float w, float h, float x, float y, float vx, float vy)
 {
-	this->getShape().setPosition(x, y);
-	this->getShape().setSize({ w, h });
-	this->getShape().setFillColor(sf::Color::Red);
-	this->getShape().setOrigin(w / 2.0f, h / 2.0f);
+	this->shape.setPosition(x, y);
+	this->shape.setSize({ w, h });
+	this->shape.setFillColor(sf::Color::Red);
+	this->shape.setOrigin(w / 2.0f, h / 2.0f);
 	this->mVelocity = { vx, vy };
 }
 
@@ -18,7 +18,7 @@ void Ball::update(sf::RenderWindow* window)
 {
 	if (this->isRun)
 	{
-		this->getShape().move(this->mVelocity);
+		this->shape.move(this->mVelocity);
 
 		if (this->x() < 0 || this->x() > window->getSize().x)
 			this->mVelocity.x *= -1;

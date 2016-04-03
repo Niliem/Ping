@@ -4,7 +4,6 @@
 #include "State.hpp"
 #include "Ball.hpp"
 
-
 class StateGame :
 	public State
 {
@@ -17,7 +16,7 @@ public:
 	void render();
 
 private:
-	Ball actor;
+	Ball mBall;
 
 };
 
