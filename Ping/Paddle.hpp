@@ -1,7 +1,7 @@
 #pragma once
 #include "Entity.hpp"
-class Paddle :
-	public Entity
+class Paddle 
+	: public Entity
 {
 public:
 	Paddle(float w, float h, float x, float y, float speed);

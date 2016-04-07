@@ -22,5 +22,7 @@ private:
 	Ball mBall;
 	Paddle mPlayer1;
 	Paddle mPlayer2;
+
+	std::vector<Entity> mActors;
 };
 
