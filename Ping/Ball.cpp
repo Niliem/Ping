@@ -1,13 +1,26 @@
 #include "Ball.hpp"
 
 
-Ball::Ball(float w, float h, float x, float y, float vx, float vy)
+Ball::Ball()
 {
-	this->shape.setPosition(x, y);
-	this->shape.setSize({ w, h });
-	this->shape.setFillColor(sf::Color::Red);
-	this->shape.setOrigin(w / 2.0f, h / 2.0f);
-	this->mVelocity = { vx, vy };
+	this->setPosition(0.0f, 0.0f);
+	this->velocity = { 0.0f, 0.0f };
+}
+
+Ball::Ball(float x, float y, float vx, float vy)
+{
+	this->setPosition(x, y);
+	this->velocity = { vx, vy };
+}
+
+//void Ball::setPosition(float x, float y)
+//{
+//	this->setPosition(x, y);
+//}
+
+void Ball::setVelocity(float vx, float vy)
+{
+	this->velocity = { vx, vy };
 }
 
 Ball::~Ball()
@@ -16,10 +29,10 @@ Ball::~Ball()
 
 void Ball::update(sf::RenderWindow* window, float ft)
 {
-	this->shape.move(this->mVelocity * ft);
+	this->move(this->velocity * ft);
 
-	if (this->x() < 0 || this->x() > window->getSize().x)
-		this->mVelocity.x *= -1;
-	if (this->y() < 0 || this->y() > window->getSize().y)
-		this->mVelocity.y *= -1;
+	if (this->left() < 0 || this->right() > window->getSize().x)
+		this->velocity.x *= -1;
+	if (this->top() < 0 || this->bottom() > window->getSize().y)
+		this->velocity.y *= -1;
 }

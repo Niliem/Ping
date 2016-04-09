@@ -154,7 +154,6 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Paddle.cpp" />
     <ClCompile Include="Physics.cpp" />
-    <ClCompile Include="Rectangle.cpp" />
     <ClCompile Include="StateManager.cpp" />
     <ClCompile Include="StateGame.cpp" />
     <ClCompile Include="Ball.cpp" />
@@ -164,7 +163,6 @@
     <ClInclude Include="Entity.hpp" />
     <ClInclude Include="Paddle.hpp" />
     <ClInclude Include="Physics.hpp" />
-    <ClInclude Include="Rectangle.hpp" />
     <ClInclude Include="State.hpp" />
     <ClInclude Include="StateManager.hpp" />
     <ClInclude Include="StateGame.hpp" />

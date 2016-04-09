@@ -19,10 +19,10 @@ public:
 	void render();
 
 private:
-	Ball mBall;
-	Paddle mPlayer1;
-	Paddle mPlayer2;
+	std::shared_ptr<Ball> mBall;
+	std::shared_ptr<Paddle> mPlayer1;
+	std::shared_ptr<Paddle> mPlayer2;
 
-	std::vector<Entity> mActors;
+	std::vector<std::shared_ptr<Entity>> mActors;
 };
 

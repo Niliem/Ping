@@ -4,9 +4,12 @@ class Paddle
 	: public Entity
 {
 public:
-	Paddle(float w, float h, float x, float y, float speed);
+	Paddle();
+	Paddle(float x, float y, float speed);
 	~Paddle();
 
+	//void setPosition(float x, float y);
+	void setSpeed(float speed);
 	void update(sf::RenderWindow* window, float ft);
 	bool isUp;
 	bool isDown;
