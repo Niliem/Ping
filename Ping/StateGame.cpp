@@ -25,6 +25,7 @@ StateGame::StateGame(sf::RenderWindow* window)
 
 StateGame::~StateGame()
 {
+	delete mWindow;
 }
 
 void StateGame::handleEvent()

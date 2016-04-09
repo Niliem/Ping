@@ -13,11 +13,6 @@ Ball::Ball(float x, float y, float vx, float vy)
 	this->velocity = { vx, vy };
 }
 
-//void Ball::setPosition(float x, float y)
-//{
-//	this->setPosition(x, y);
-//}
-
 void Ball::setVelocity(float vx, float vy)
 {
 	this->velocity = { vx, vy };

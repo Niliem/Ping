@@ -12,7 +12,6 @@ Application::Application()
 	StateManager::setState(std::shared_ptr<StateGame>(new StateGame(&mWindow)));
 }
 
-
 Application::~Application()
 {
 }

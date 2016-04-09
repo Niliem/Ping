@@ -1,7 +1,6 @@
 #include "Paddle.hpp"
 
 
-
 Paddle::Paddle()
 	: isUp{ false }
 	, isDown{ false }
@@ -24,17 +23,12 @@ Paddle::~Paddle()
 {
 }
 
-//void Paddle::setPosition(float x, float y)
-//{
-//	this->setPosition(x, y);
-//}
-
 void Paddle::setSpeed(float speed)
 {
 	mSpeed = speed;
 }
 
-void Paddle::update(sf::RenderWindow * window, float ft)
+void Paddle::update(sf::RenderWindow* window, float ft)
 {
 	this->move(this->velocity * ft);
 

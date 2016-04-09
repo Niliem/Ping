@@ -8,7 +8,7 @@ class Entity
 {
 public:
 	void Load(std::string filename);
-	virtual void update(sf::RenderWindow * window, float ft) = 0;
+	virtual void update(sf::RenderWindow* window, float ft) = 0;
 	bool checkCollision(std::shared_ptr<Entity> e);
 
 	float x() const noexcept;
