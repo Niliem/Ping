@@ -2,6 +2,7 @@
 
 
 StateGame::StateGame(sf::RenderWindow* window)
+	: reset{false}
 {
 	mBall = std::make_shared<Ball>(window->getSize().x / 2.0f, window->getSize().y / 2.0f, 0.1f, 0.2f);
 	mBall->Load("ball.png");
@@ -17,6 +18,7 @@ StateGame::StateGame(sf::RenderWindow* window)
 	mActors.push_back(mPlayer2);
 
 	mWindow = window;
+	Score::resetScore();
 }
 
 StateGame::~StateGame()
@@ -30,14 +32,19 @@ void StateGame::handleEvent()
 
 	mPlayer2->isUp = sf::Keyboard::isKeyPressed(sf::Keyboard::Up);
 	mPlayer2->isDown = sf::Keyboard::isKeyPressed(sf::Keyboard::Down);
+
+	//this->reset = sf::Keyboard::isKeyPressed(sf::Keyboard::Space);
+	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
+		std::cout << "Score1: " << Score::getScore(SCORE::FIRST) << " Score2: " << Score::getScore(SCORE::SECOND) << std::endl;
 }
 
 void StateGame::update(float ft)
 {
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+	if (mBall->resetGame)
 	{
 		for (auto& a : mActors)
 			a->reset();
+		mBall->resetGame = false;
 	}
 
 	for (auto& a : mActors)
@@ -45,6 +52,8 @@ void StateGame::update(float ft)
 
 	Physics::Collision(mBall, mPlayer1);
 	Physics::Collision(mBall, mPlayer2);
+
+	
 }
 
 void StateGame::render()

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Entity.hpp"
+#include "Score.hpp"
 
 class Ball
 	: public Entity
@@ -14,5 +15,7 @@ public:
 
 	void update(sf::RenderWindow* window, float ft);
 	void reset();
+
+	bool resetGame;
 };
 

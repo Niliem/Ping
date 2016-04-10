@@ -7,6 +7,7 @@
 #include "Ball.hpp"
 #include "Paddle.hpp"
 #include "Physics.hpp"
+#include "Score.hpp"
 
 class StateGame :
 	public State
@@ -25,5 +26,7 @@ private:
 	std::shared_ptr<Paddle> mPlayer2;
 
 	std::vector<std::shared_ptr<Entity>> mActors;
+
+	bool reset;
 };
 
