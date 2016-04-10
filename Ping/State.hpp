@@ -10,5 +10,6 @@ public:
 	virtual void update(float ft) = 0;
 	virtual void render() = 0;
 
+protected:
 	sf::RenderWindow* mWindow;
 };

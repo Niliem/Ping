@@ -11,7 +11,10 @@ public:
 	~Paddle();
 
 	void setSpeed(float speed);
+
 	void update(sf::RenderWindow* window, float ft);
+	void reset();
+
 	bool isUp;
 	bool isDown;
 

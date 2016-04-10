@@ -9,6 +9,7 @@ class Entity
 public:
 	void Load(std::string filename);
 	virtual void update(sf::RenderWindow* window, float ft) = 0;
+	virtual void reset() = 0;
 	bool checkCollision(std::shared_ptr<Entity> e);
 
 	float x() const noexcept;
@@ -22,5 +23,9 @@ public:
 
 protected:	
 	std::shared_ptr<sf::Texture> mTexture;
+
+	float mStartX;
+	float mStartY;
+	sf::Vector2f mStartVelocity;
 };
 

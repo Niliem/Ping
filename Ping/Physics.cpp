@@ -1,13 +1,8 @@
 #include "Physics.hpp"
 
-bool Physics::isIntersection(std::shared_ptr<Entity> e1, std::shared_ptr<Entity> e2)
-{
-	return e1->getGlobalBounds().intersects(e2->getGlobalBounds());
-}
-
 void Physics::Collision(std::shared_ptr<Entity> e1, std::shared_ptr<Entity> e2)
 {
-	if (!isIntersection(e1, e2))
+	if (!e1->checkCollision(e2))
 		return;
 
 	float overlapLeft = e2->right() - e1->left();

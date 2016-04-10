@@ -3,14 +3,10 @@
 
 StateGame::StateGame(sf::RenderWindow* window)
 {
-	mBall = std::make_shared<Ball>();
-	mBall->setPosition(window->getSize().x / 2.0f, window->getSize().y / 2.0f);
-	mBall->setVelocity(0.1f, 0.2f);
+	mBall = std::make_shared<Ball>(window->getSize().x / 2.0f, window->getSize().y / 2.0f, 0.1f, 0.2f);
 	mBall->Load("ball.png");
 
-	mPlayer1 = std::make_shared<Paddle>();
-	mPlayer1->setPosition(50.0f, window->getSize().y / 2.0f);
-	mPlayer1->setSpeed(0.3f);
+	mPlayer1 = std::make_shared<Paddle>(50.0f, window->getSize().y / 2.0f, 0.3f);
 	mPlayer1->Load("paddle1.png");
 
 	mPlayer2 = std::make_shared<Paddle>(window->getSize().x - 50.0f, window->getSize().y / 2.0f, 0.3f);
@@ -25,7 +21,6 @@ StateGame::StateGame(sf::RenderWindow* window)
 
 StateGame::~StateGame()
 {
-	delete mWindow;
 }
 
 void StateGame::handleEvent()
@@ -39,6 +34,12 @@ void StateGame::handleEvent()
 
 void StateGame::update(float ft)
 {
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+	{
+		for (auto& a : mActors)
+			a->reset();
+	}
+
 	for (auto& a : mActors)
 		a->update(mWindow, ft);
 

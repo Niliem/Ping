@@ -17,6 +17,10 @@ Paddle::Paddle(float x, float y, float speed)
 {
 	this->setPosition(x, y);
 	this->velocity = { 0, 0 };
+
+	this->mStartX = x;
+	this->mStartY = y;
+	this->mStartVelocity = { 0, 0 };
 }
 
 Paddle::~Paddle()
@@ -39,4 +43,9 @@ void Paddle::update(sf::RenderWindow* window, float ft)
 	else this->velocity.y = 0;
 
 
+}
+
+void Paddle::reset()
+{
+	this->setPosition(this->mStartX, this->mStartY);
 }
