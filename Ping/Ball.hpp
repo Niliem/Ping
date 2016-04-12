@@ -13,7 +13,7 @@ public:
 
 	void setVelocity(float vx, float vy);
 
-	void update(sf::RenderWindow* window, float ft);
+	void update(sf::RenderWindow* window, float deltaTime);
 	void reset();
 
 	bool resetGame;

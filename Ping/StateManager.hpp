@@ -8,7 +8,7 @@ public:
 	static void setState(std::shared_ptr<State> newState);
 
 	static void handleEvent();
-	static void update(float ft);
+	static void update(float deltaTime);
 	static void render();
 
 private:

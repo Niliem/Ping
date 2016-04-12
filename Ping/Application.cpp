@@ -3,12 +3,20 @@
 
 Application::Application()
 	: mWindow{ { WINDOW_WIDTH, WINDOW_HEIGHT}, "Ping pong" }
-	, mLastFt{ 0.0f }
+	, mLastDeltaTime{ 0.0f }
 	, mCurrentSlice{ 0.0f }
-	, mFtStep{ 1.0f }
-	, mFtSlice{ 1.0f }
+	, mDeltaTimeStep{ 1.0f }
+	, mDeltaTimeSlice{ 1.0f }
+	, mStatisticsText()
+	, mFont()
 {
 	mWindow.setFramerateLimit(60);
+
+	mFont.loadFromFile("Data/Graphics/Sansation.ttf");
+	mStatisticsText.setFont(mFont);
+	mStatisticsText.setPosition(5.f, 5.f);
+	mStatisticsText.setCharacterSize(14);
+
 	StateManager::setState(std::shared_ptr<StateGame>(new StateGame(&mWindow)));
 }
 
@@ -30,7 +38,9 @@ void Application::run()
 		auto timePoint2 = std::chrono::high_resolution_clock::now();
 
 		auto elapsedTime = timePoint2 - timePoint1;
-		mLastFt = std::chrono::duration_cast<std::chrono::duration<float, std::milli>>(elapsedTime).count();
+		mLastDeltaTime = std::chrono::duration_cast<std::chrono::duration<float, std::milli>>(elapsedTime).count();
+
+		calculateFPS();
 	}
 }
 
@@ -53,18 +63,26 @@ void Application::processEvents()
 
 void Application::update()
 {
-	mCurrentSlice += mLastFt;
-	for (; mCurrentSlice >= mFtSlice; mCurrentSlice -= mFtSlice)
+	mCurrentSlice += mLastDeltaTime;
+	for (; mCurrentSlice >= mDeltaTimeSlice; mCurrentSlice -= mDeltaTimeSlice)
 	{
-		StateManager::update(mFtStep);
+		StateManager::update(mDeltaTimeStep);
 	}
 }
 
 void Application::render()
 {
-	mWindow.clear();
+	mWindow.clear();	
 
-	StateManager::render();
+	StateManager::render();	
+	mWindow.draw(mStatisticsText);
 
 	mWindow.display();
+}
+
+void Application::calculateFPS()
+{
+	float ftSeconds = mLastDeltaTime / 1000.0f;
+	float fps = 1.0f / ftSeconds;
+	mStatisticsText.setString("FT: " + std::to_string(mLastDeltaTime) + "\tFPS: " + std::to_string(fps));
 }

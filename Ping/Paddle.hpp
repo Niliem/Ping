@@ -12,7 +12,7 @@ public:
 
 	void setSpeed(float speed);
 
-	void update(sf::RenderWindow* window, float ft);
+	void update(sf::RenderWindow* window, float deltaTime);
 	void reset();
 
 	bool isUp;

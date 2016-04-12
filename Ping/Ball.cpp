@@ -33,9 +33,9 @@ Ball::~Ball()
 {
 }
 
-void Ball::update(sf::RenderWindow* window, float ft)
+void Ball::update(sf::RenderWindow* window, float deltaTime)
 {
-	this->move(this->velocity * ft);
+	this->move(this->velocity * deltaTime);
 
 	if (this->left() < 0)
 	{

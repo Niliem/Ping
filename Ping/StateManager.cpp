@@ -13,10 +13,10 @@ void StateManager::handleEvent()
 		mCurrentState->handleEvent();
 }
 
-void StateManager::update(float ft)
+void StateManager::update(float deltaTime)
 {
 	if (mCurrentState != nullptr)
-		mCurrentState->update(ft);
+		mCurrentState->update(deltaTime);
 }
 
 void StateManager::render()

@@ -32,28 +32,26 @@ void StateGame::handleEvent()
 
 	mPlayer2->isUp = sf::Keyboard::isKeyPressed(sf::Keyboard::Up);
 	mPlayer2->isDown = sf::Keyboard::isKeyPressed(sf::Keyboard::Down);
-
-	//this->reset = sf::Keyboard::isKeyPressed(sf::Keyboard::Space);
-	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
-		std::cout << "Score1: " << Score::getScore(SCORE::FIRST) << " Score2: " << Score::getScore(SCORE::SECOND) << std::endl;
 }
 
-void StateGame::update(float ft)
+void StateGame::update(float deltaTime)
 {
 	if (mBall->resetGame)
 	{
 		for (auto& a : mActors)
 			a->reset();
 		mBall->resetGame = false;
+
+		std::stringstream s;
+		s << "Player 1: " << Score::getScore(SCORE::FIRST) << " - Player 2: " << Score::getScore(SCORE::SECOND);
+		mWindow->setTitle(s.str());
 	}
 
 	for (auto& a : mActors)
-		a->update(mWindow, ft);
+		a->update(mWindow, deltaTime);
 
 	Physics::Collision(mBall, mPlayer1);
-	Physics::Collision(mBall, mPlayer2);
-
-	
+	Physics::Collision(mBall, mPlayer2);	
 }
 
 void StateGame::render()

@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <vector>
+#include <sstream>
 
 #include "State.hpp"
 #include "Ball.hpp"
@@ -17,7 +18,7 @@ public:
 	~StateGame();
 
 	void handleEvent();
-	void update(float ft);
+	void update(float deltaTime);
 	void render();
 
 private:

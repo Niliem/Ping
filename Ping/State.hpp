@@ -7,7 +7,7 @@ class State
 {
 public:
 	virtual void handleEvent() = 0;
-	virtual void update(float ft) = 0;
+	virtual void update(float deltaTime) = 0;
 	virtual void render() = 0;
 
 protected:

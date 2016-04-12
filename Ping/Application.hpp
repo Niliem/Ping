@@ -22,14 +22,19 @@ private:
 	void update();
 	void render();
 
+	void calculateFPS();
+
 private:
 	sf::RenderWindow mWindow;
 	bool mApplicationRunning;
 
-	float mLastFt;
+	float mLastDeltaTime;
 	float mCurrentSlice;
 
-	const float mFtStep;
-	const float mFtSlice;
+	const float mDeltaTimeStep;
+	const float mDeltaTimeSlice;
+
+	sf::Font mFont;
+	sf::Text mStatisticsText;
 };
 

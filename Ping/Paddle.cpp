@@ -32,9 +32,9 @@ void Paddle::setSpeed(float speed)
 	mSpeed = speed;
 }
 
-void Paddle::update(sf::RenderWindow* window, float ft)
+void Paddle::update(sf::RenderWindow* window, float deltaTime)
 {
-	this->move(this->velocity * ft);
+	this->move(this->velocity * deltaTime);
 
 	if (isUp && this->top() > 0)
 		this->velocity.y = -mSpeed;
