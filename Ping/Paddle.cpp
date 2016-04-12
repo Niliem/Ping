@@ -41,8 +41,6 @@ void Paddle::update(sf::RenderWindow* window, float deltaTime)
 	else if (isDown && this->bottom() < window->getSize().y)
 		this->velocity.y = mSpeed;
 	else this->velocity.y = 0;
-
-
 }
 
 void Paddle::reset()

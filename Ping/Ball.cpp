@@ -1,4 +1,5 @@
 #include "Ball.hpp"
+#include "Score.hpp"
 
 
 Ball::Ball()

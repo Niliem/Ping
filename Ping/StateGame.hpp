@@ -1,25 +1,21 @@
 #pragma once
 
-#include <iostream>
 #include <vector>
-#include <sstream>
 
 #include "State.hpp"
 #include "Ball.hpp"
 #include "Paddle.hpp"
-#include "Physics.hpp"
-#include "Score.hpp"
 
 class StateGame :
 	public State
 {
 public:
-	StateGame(sf::RenderWindow* window);
+	explicit StateGame(sf::RenderWindow* window);
 	~StateGame();
 
-	void handleEvent();
-	void update(float deltaTime);
-	void render();
+	void handleEvent() override;
+	void update(float deltaTime) override;
+	void render() override;
 
 private:
 	std::shared_ptr<Ball> mBall;

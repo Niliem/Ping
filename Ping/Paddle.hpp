@@ -12,8 +12,8 @@ public:
 
 	void setSpeed(float speed);
 
-	void update(sf::RenderWindow* window, float deltaTime);
-	void reset();
+	void update(sf::RenderWindow* window, float deltaTime) override;
+	void reset() override;
 
 	bool isUp;
 	bool isDown;

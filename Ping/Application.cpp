@@ -1,14 +1,17 @@
 #include "Application.hpp"
+#include "StateGame.hpp"
+#include <chrono>
 
 
 Application::Application()
 	: mWindow{ { WINDOW_WIDTH, WINDOW_HEIGHT}, "Ping pong" }
+	, mApplicationRunning(false)
 	, mLastDeltaTime{ 0.0f }
 	, mCurrentSlice{ 0.0f }
 	, mDeltaTimeStep{ 1.0f }
 	, mDeltaTimeSlice{ 1.0f }
-	, mStatisticsText()
 	, mFont()
+	, mStatisticsText()
 {
 	mWindow.setFramerateLimit(60);
 
@@ -17,7 +20,7 @@ Application::Application()
 	mStatisticsText.setPosition(5.f, 5.f);
 	mStatisticsText.setCharacterSize(14);
 
-	StateManager::setState(std::shared_ptr<StateGame>(new StateGame(&mWindow)));
+	StateManager::setState(std::make_shared<StateGame>(&mWindow));
 }
 
 Application::~Application()
@@ -82,7 +85,7 @@ void Application::render()
 
 void Application::calculateFPS()
 {
-	float ftSeconds = mLastDeltaTime / 1000.0f;
-	float fps = 1.0f / ftSeconds;
+	auto ftSeconds = mLastDeltaTime / 1000.0f;
+	auto fps = 1.0f / ftSeconds;
 	mStatisticsText.setString("FT: " + std::to_string(mLastDeltaTime) + "\tFPS: " + std::to_string(fps));
 }

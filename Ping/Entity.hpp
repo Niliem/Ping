@@ -7,10 +7,11 @@ class Entity
 	: public sf::Sprite
 {
 public:
+	Entity();
 	void Load(std::string filename);
 	virtual void update(sf::RenderWindow* window, float deltaTime) = 0;
 	virtual void reset() = 0;
-	bool checkCollision(std::shared_ptr<Entity> e);
+	bool checkCollision(std::shared_ptr<Entity> e) const;
 
 	float x() const noexcept;
 	float y() const noexcept;

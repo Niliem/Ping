@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Entity.hpp"
-#include "Score.hpp"
 
 class Ball
 	: public Entity
@@ -13,8 +12,8 @@ public:
 
 	void setVelocity(float vx, float vy);
 
-	void update(sf::RenderWindow* window, float deltaTime);
-	void reset();
+	void update(sf::RenderWindow* window, float deltaTime) override;
+	void reset() override;
 
 	bool resetGame;
 };

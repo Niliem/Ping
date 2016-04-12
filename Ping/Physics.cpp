@@ -5,16 +5,16 @@ void Physics::Collision(std::shared_ptr<Entity> e1, std::shared_ptr<Entity> e2)
 	if (!e1->checkCollision(e2))
 		return;
 
-	float overlapLeft = e2->right() - e1->left();
-	float overlapRight = e1->right() - e2->left();
-	float overlapTop = e2->bottom() - e1->top();
-	float overlapBottom = e1->bottom() - e2->top();
+	auto overlapLeft = e2->right() - e1->left();
+	auto overlapRight = e1->right() - e2->left();
+	auto overlapTop = e2->bottom() - e1->top();
+	auto overlapBottom = e1->bottom() - e2->top();
 
-	bool fromLeft = std::abs(overlapLeft) < std::abs(overlapRight);
-	bool fromTop = std::abs(overlapTop) < std::abs(overlapBottom);
+	auto fromLeft = std::abs(overlapLeft) < std::abs(overlapRight);
+	auto fromTop = std::abs(overlapTop) < std::abs(overlapBottom);
 
-	float overlapX = fromLeft ? overlapLeft : overlapRight;
-	float overlapY = fromTop ? overlapTop : overlapBottom;
+	auto overlapX = fromLeft ? overlapLeft : overlapRight;
+	auto overlapY = fromTop ? overlapTop : overlapBottom;
 
 	if (std::abs(overlapX) < std::abs(overlapY))
 	{

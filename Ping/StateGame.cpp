@@ -1,8 +1,12 @@
 #include "StateGame.hpp"
+#include "Score.hpp"
+#include <sstream>
+#include "Physics.hpp"
 
 
 StateGame::StateGame(sf::RenderWindow* window)
-	: reset{false}
+	: State(window)
+	, reset{false}
 {
 	mBall = std::make_shared<Ball>(window->getSize().x / 2.0f, window->getSize().y / 2.0f, 0.1f, 0.2f);
 	mBall->Load("ball.png");

@@ -1,9 +1,6 @@
 #pragma once
 
-#include <chrono>
-
 #include "StateManager.hpp"
-#include "StateGame.hpp"
 
 constexpr unsigned int WINDOW_WIDTH{ 640 };
 constexpr unsigned int WINDOW_HEIGHT{ 480 };
@@ -24,7 +21,6 @@ private:
 
 	void calculateFPS();
 
-private:
 	sf::RenderWindow mWindow;
 	bool mApplicationRunning;
 

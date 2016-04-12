@@ -1,6 +1,13 @@
 #include "Entity.hpp"
 
 
+Entity::Entity()
+	: mStartX(0)
+	, mStartY(0)
+	, mStartVelocity{0, 0}
+{
+}
+
 void Entity::Load(std::string filename)
 {
 	this->mTexture = std::make_shared<sf::Texture>();
@@ -9,7 +16,7 @@ void Entity::Load(std::string filename)
 	this->setOrigin({ this->getGlobalBounds().width / 2.0f, this->getGlobalBounds().height / 2.0f });
 }
 
-bool Entity::checkCollision(std::shared_ptr<Entity> e)
+bool Entity::checkCollision(std::shared_ptr<Entity> e) const
 {
 	return this->getGlobalBounds().intersects(e->getGlobalBounds());
 }
