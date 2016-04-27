@@ -6,8 +6,8 @@ Paddle::Paddle()
 	, isDown{ false }
 	, mSpeed{ 0.0f }
 {
-	this->setPosition(0.0f, 0.0f);
-	this->velocity = { 0, 0 };
+	setPosition(0.0f, 0.0f);
+	velocity = { 0, 0 };
 }
 
 Paddle::Paddle(float x, float y, float speed)
@@ -15,12 +15,12 @@ Paddle::Paddle(float x, float y, float speed)
 	, isDown{false}
 	, mSpeed{ speed }
 {
-	this->setPosition(x, y);
-	this->velocity = { 0, 0 };
+	setPosition(x, y);
+	velocity = { 0, 0 };
 
-	this->mStartX = x;
-	this->mStartY = y;
-	this->mStartVelocity = { 0, 0 };
+	mStartX = x;
+	mStartY = y;
+	mStartVelocity = { 0, 0 };
 }
 
 Paddle::~Paddle()
@@ -34,16 +34,16 @@ void Paddle::setSpeed(float speed)
 
 void Paddle::update(sf::RenderWindow* window, float deltaTime)
 {
-	this->move(this->velocity * deltaTime);
+	move(velocity * deltaTime);
 
-	if (isUp && this->top() > 0)
-		this->velocity.y = -mSpeed;
-	else if (isDown && this->bottom() < window->getSize().y)
-		this->velocity.y = mSpeed;
-	else this->velocity.y = 0;
+	if (isUp && top() > 0)
+		velocity.y = -mSpeed;
+	else if (isDown && bottom() < window->getSize().y)
+		velocity.y = mSpeed;
+	else velocity.y = 0;
 }
 
 void Paddle::reset()
 {
-	this->setPosition(this->mStartX, this->mStartY);
+	setPosition(mStartX, mStartY);
 }

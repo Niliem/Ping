@@ -87,5 +87,5 @@ void Application::calculateFPS()
 {
 	auto ftSeconds = mLastDeltaTime / 1000.0f;
 	auto fps = 1.0f / ftSeconds;
-	mStatisticsText.setString("FT: " + std::to_string(mLastDeltaTime) + "\tFPS: " + std::to_string(fps));
+	mStatisticsText.setString("FPS: " + std::to_string(static_cast<int>(fps)));
 }

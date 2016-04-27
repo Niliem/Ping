@@ -5,29 +5,29 @@
 Ball::Ball()
 	: resetGame{false}
 {
-	this->setPosition(0.0f, 0.0f);
-	this->velocity = { 0.0f, 0.0f };
+	setPosition(0.0f, 0.0f);
+	velocity = { 0.0f, 0.0f };
 
-	this->mStartX = 0.0f;
-	this->mStartY = 0.0f;
-	this->mStartVelocity = { 0.0f, 0.0f };
+	mStartX = 0.0f;
+	mStartY = 0.0f;
+	mStartVelocity = { 0.0f, 0.0f };
 }
 
 Ball::Ball(float x, float y, float vx = 0.0f, float vy = 0.0f)
 	: resetGame{ false }
 {
-	this->setPosition(x, y);
-	this->velocity = { vx, vy };
+	setPosition(x, y);
+	velocity = { vx, vy };
 
-	this->mStartX = x;
-	this->mStartY = y;
-	this->mStartVelocity = { vx, vy };
+	mStartX = x;
+	mStartY = y;
+	mStartVelocity = { vx, vy };
 }
 
 void Ball::setVelocity(float vx, float vy)
 {
-	this->velocity = { vx, vy };
-	this->mStartVelocity = { vx, vy };
+	velocity = { vx, vy };
+	mStartVelocity = { vx, vy };
 }
 
 Ball::~Ball()
@@ -36,27 +36,27 @@ Ball::~Ball()
 
 void Ball::update(sf::RenderWindow* window, float deltaTime)
 {
-	this->move(this->velocity * deltaTime);
+	move(velocity * deltaTime);
 
-	if (this->left() < 0)
+	if (left() < 0)
 	{
-		this->velocity.x *= -1;
+		velocity.x *= -1;
 		Score::addScore(SCORE::FIRST);
-		this->resetGame = true;
+		resetGame = true;
 	}
-	else if (this->right() > window->getSize().x)
+	else if (right() > window->getSize().x)
 	{
-		this->velocity.x *= -1;
+		velocity.x *= -1;
 		Score::addScore(SCORE::SECOND);
-		this->resetGame = true;
+		resetGame = true;
 	}
 
-	if (this->top() < 0 || this->bottom() > window->getSize().y)
-		this->velocity.y *= -1;
+	if (top() < 0 || bottom() > window->getSize().y)
+		velocity.y *= -1;
 }
 
 void Ball::reset()
 {
-	this->setPosition(this->mStartX, this->mStartY);
-	this->velocity = this->mStartVelocity;
+	setPosition(mStartX, mStartY);
+	velocity = mStartVelocity;
 }
